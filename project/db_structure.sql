@@ -1,5 +1,3 @@
-START TRANSACTION;
-
 CREATE DATABASE gerenciamento_conferencia;
 
 USE gerenciamento_conferencia;
@@ -102,5 +100,3 @@ CREATE TABLE avaliacao (
 
 CREATE INDEX idx_availacao_id_sessao ON avaliacao(id_sessao);
 CREATE INDEX idx_availacao_id_participante ON avaliacao(id_participante);
-
-COMMIT;
