@@ -88,7 +88,7 @@ CREATE INDEX idx_palestra_id_palestrante ON palestra(id_palestrante);
 CREATE INDEX idx_palestra_id_sessao ON palestra(id_sessao);
 
 CREATE TABLE avaliacao (
-  id INT NOT NULL,
+  id INT NOT NULL PRIMARY KEY auto_increment,
   id_sessao INT NOT NULL,
   id_participante INT NOT NULL,
   nota INT NOT NULL,
