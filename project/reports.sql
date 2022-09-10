@@ -26,7 +26,7 @@ LIMIT 10;
 -- Gerar uma lista dos 5 participantes que mais realizaram palestras na plaforma. Os resultados devem ser ordenados em ordem decrescente pelo número
 -- de palestras
 SELECT
-	p.id "ID do Participante",
+    p.id "ID do Participante",
     p.nome "Nome do Participante",
     (SELECT COUNT(*) FROM participacao WHERE id_participante = p.id) "Participações"
  FROM participante p   
@@ -36,11 +36,11 @@ SELECT
 -- Gerar uma lista com todos os participantes que estiveram em alguma sessão nos últimos 790 dias. Ao lado do nome de cada participante
 -- deve ser apresentado se ele/ela gostou ou não da sessao. Caso sua avaliação tenha sido >= 3, significa que tenha gostado, caso contrário não.
 SELECT 
-	p.id "ID do Participante",
+    p.id "ID do Participante",
     p.nome "Nome do Participante",
     CASE 
     	WHEN (SELECT a.nota FROM avaliacao a WHERE a.id_participante = p.id LIMIT 1) >= 3 THEN 'Sim'
-    ELSE 'Não'
+      ELSE 'Não'
     END 'Gostou'
 FROM participante p
 INNER JOIN participacao ON p.id = participacao.id_participante
@@ -51,7 +51,7 @@ WHERE
 -- Gerar uma lista com lotação de todas as conferência que possuem limite de participantes. A lotação deve ser calculado dividindo o número de 
 -- participantes pelo limite de participantes. Apenas as 20 primeiras conferências devem ser retornadas.
 SELECT 
-	c.id "ID da Conferência",
+    c.id "ID da Conferência",
     c.titulo "Título da Conferência",
     (
       SELECT COUNT(*) FROM participante 
