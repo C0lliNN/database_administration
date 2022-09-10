@@ -1,7 +1,7 @@
 -- Gerar uma lista com as conferências iniciadas nos últimos 30 dias, com o número de sessões em cada conferência. As conferências
 -- devem ser ordenadas por data em ordem crescente
 SELECT 
-	c.id "ID da Conferência", 
+    c.id "ID da Conferência", 
     c.titulo 'Título da Conferência', 
     (SELECT COUNT(*) FROM sessao s WHERE s.id_conferencia = c.id) "Número de Sessões"
 FROM conferencia c    
@@ -11,7 +11,7 @@ ORDER BY c.data_inicio ASC;
   
 -- Gerar uma lista com as 10 sessões mais bem avaliadas. O título da conferência, assim como o nome do palestrante também devem ser apresentados
 SELECT
-	s.id "ID da Sessão",
+    s.id "ID da Sessão",
     s.assunto "Assunto da Sessão",
     c.titulo "Conferência",
     p.nome "Nome do Palestrante",
