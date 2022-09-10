@@ -6,7 +6,7 @@ SELECT
     (SELECT COUNT(*) FROM sessao s WHERE s.id_conferencia = c.id) "Número de Sessões"
 FROM conferencia c    
 WHERE
-	c.data_inicio >= DATE_SUB(CURDATE(),INTERVAL 30 DAY)
+     c.data_inicio >= DATE_SUB(CURDATE(),INTERVAL 30 DAY)
 ORDER BY c.data_inicio ASC;
   
 -- Gerar uma lista com as 10 sessões mais bem avaliadas. O título da conferência, assim como o nome do palestrante também devem ser apresentados
@@ -39,14 +39,14 @@ SELECT
     p.id "ID do Participante",
     p.nome "Nome do Participante",
     CASE 
-    	WHEN (SELECT a.nota FROM avaliacao a WHERE a.id_participante = p.id LIMIT 1) >= 3 THEN 'Sim'
+      WHEN (SELECT a.nota FROM avaliacao a WHERE a.id_participante = p.id LIMIT 1) >= 3 THEN 'Sim'
       ELSE 'Não'
     END 'Gostou'
 FROM participante p
 INNER JOIN participacao ON p.id = participacao.id_participante
 INNER JOIN sessao s ON s.id = participacao.id_sessao
 WHERE
-	s.data >= DATE(DATE_SUB(CURDATE(), INTERVAL 90 DAY));
+    s.data >= DATE(DATE_SUB(CURDATE(), INTERVAL 90 DAY));
 
 -- Gerar uma lista com lotação de todas as conferência que possuem limite de participantes. A lotação deve ser calculado dividindo o número de 
 -- participantes pelo limite de participantes. Apenas as 20 primeiras conferências devem ser retornadas.
