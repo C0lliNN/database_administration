@@ -12,3 +12,5 @@ REVOKE DELETE, DROP ON *.* FROM 'Joao de Souza';
 
 SHOW GRANTS FOR 'Joao de Souza';
 
+ALTER USER 'Joao de Souza' IDENTIFIED BY '234';
+
